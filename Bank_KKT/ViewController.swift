@@ -16,8 +16,9 @@ class ViewController: UIViewController, UIWebViewDelegate {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func KKTButton(_ sender: Any) {
-        guard let url = URL(string: "https://pf.kakao.com/_Cxixopb/chat"), UIApplication.shared.canOpenURL(url) else { return };  UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    @IBAction func btnTapped(_ sender: Any) {
+        let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        self.navigationController?.pushViewController(storyboard, animated: true)
     }
     
     

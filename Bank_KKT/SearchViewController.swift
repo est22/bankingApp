@@ -15,6 +15,8 @@ class SearchViewController: UIViewController {
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var goButton: UIButton!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +42,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = filteredData[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "FundViewController") as! FundViewController
+        self.navigationController?.pushViewController(storyboard, animated: true)
     }
     
         
